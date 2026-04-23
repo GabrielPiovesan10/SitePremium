@@ -25,10 +25,10 @@
         .menu-btn:checked ~ .menu-icon span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
         /* --- HEADER --- */
-        header { height: 100vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('FOTO_CAPA.jpg') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 90px; color: var(--gold); letter-spacing: 15px; margin: 0; }
-        .subtitle { font-size: 16px; text-transform: uppercase; letter-spacing: 6px; margin-top: 10px; }
-        .btn-header { margin-top: 40px; padding: 18px 45px; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; font-weight: bold; background: transparent; cursor: pointer; transition: 0.4s; }
+        header { height: 100vh; background: url('FOTO_CAPA.jpg') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 90px; color: var(--gold); letter-spacing: 15px; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .subtitle { font-size: 16px; text-transform: uppercase; letter-spacing: 6px; margin-top: 10px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        .btn-header { margin-top: 40px; padding: 18px 45px; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; font-weight: bold; background: rgba(0,0,0,0.5); cursor: pointer; transition: 0.4s; }
         .btn-header:hover { background: var(--gold); color: white; }
 
         /* --- ANIMAÇÕES --- */
@@ -90,7 +90,7 @@
         <div class="nav-links">
             <a href="#" onclick="closeMenu()">Início</a>
             <a href="#especialidades" onclick="closeMenu()">Especialidades</a>
-            <a href="https://wa.me/5519999999999" target="_blank" onclick="closeMenu()">Contato</a>
+            <a href="https://wa.me/5519993405480" target="_blank" onclick="closeMenu()">Contato</a>
             <a href="javascript:void(0)" onclick="openModal(); closeMenu()">Reservar Mesa</a>
         </div>
     </nav>
@@ -232,22 +232,4 @@
             const pessoas = document.getElementById("pessoas").value;
             if(!nome || !selectedDate || !selectedTimeValue) { alert("Selecione data, hora e digite seu nome."); return; }
             const msg = `Reserva Deck:%0ANome: ${nome}%0AData: ${selectedDate}%0AHora: ${selectedTimeValue}%0APessoas: ${pessoas}`;
-            window.open(`https://wa.me/5519993405480?text=${msg}`);
-            closeModal();
-        }
-
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal, .card-wrapper, .divisor-container");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 120) { 
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        window.onload = reveal;
-    </script>
-</body>
-</html>
+            window.open(`https
