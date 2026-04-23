@@ -35,41 +35,13 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.17, 0.55, 0.55, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* --- CARDS COM LINHA CONECTORA DIRETA (NOVO SISTEMA) --- */
+        /* --- CARDS COM LINHA CONECTORA DIRETA --- */
         .especialidades { padding: 100px 20px; text-align: center; position: relative; }
-
-        .card-wrapper { 
-            position: relative; 
-            max-width: 500px; 
-            margin: 0 auto; /* Tirei a margem vertical gigante para a conexão ser mais curta */
-            margin-bottom: 80px; /* Margem apenas embaixo para o espaço da linha */
-            background: var(--white); 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05); 
-            z-index: 2; 
-        }
-
-        /* A LINHA QUE NASCE NO FUNDO DE CADA CARD */
-        .card-wrapper::after {
-            content: '';
-            position: absolute;
-            bottom: -80px; /* Alinhada exatamente com a margem inferior */
-            left: 50%;
-            width: 1px;
-            height: 0; /* Começa em zero */
-            background: linear-gradient(to bottom, var(--gold), transparent);
-            z-index: 1;
-            transition: height 1s ease-out; /* Animação quando o card ativa */
-            opacity: 0.4;
-            transform: translateX(-50%); /* Centraliza perfeitamente */
-        }
-
-        /* A linha cresce quando o card ganha a classe 'active' */
+        .card-wrapper { position: relative; max-width: 500px; margin: 0 auto; margin-bottom: 80px; background: var(--white); box-shadow: 0 15px 40px rgba(0,0,0,0.05); z-index: 2; }
+        .card-wrapper::after { content: ''; position: absolute; bottom: -80px; left: 50%; width: 1px; height: 0; background: linear-gradient(to bottom, var(--gold), transparent); z-index: 1; transition: height 1s ease-out; opacity: 0.4; transform: translateX(-50%); }
         .card-wrapper.active::after { height: 80px; }
-
-        /* TIRA A LINHA DO ÚLTIMO CARD (Petit Gâteau) */
         .card-wrapper:last-child::after { display: none; }
 
-        /* RISCO DOURADO DOS CARDS (EFEITO ORIGINAL MANTIDO) */
         .line { position: absolute; background: var(--gold); transition: all 0.8s ease-in-out; z-index: 10; }
         .line-top { top: 0; left: 0; width: 0; height: 2px; }
         .line-right { top: 0; right: 0; width: 2px; height: 0; }
@@ -106,19 +78,19 @@
         footer { padding: 50px; background: #000; color: #444; text-align: center; font-size: 11px; }
         footer span { color: var(--gold); }
 
-        @media (max-width: 600px) { header h1 { font-size: 55px; } .card-wrapper::after { left: 50%; } }
+        @media (max-width: 600px) { header h1 { font-size: 55px; } }
     </style>
 </head>
 <body>
 
-    <nav id="contato">
-        <a href="#" class="logo"></a>
+    <nav>
+        <a href="#" class="logo">DECK</a>
         <input type="checkbox" id="menu-btn" class="menu-btn">
         <label for="menu-btn" class="menu-icon"><span></span><span></span><span></span></label>
         <div class="nav-links">
             <a href="#" onclick="closeMenu()">Início</a>
             <a href="#especialidades" onclick="closeMenu()">Especialidades</a>
-            <a href="#contato" onclick="closeMenu()">Contato</a>
+            <a href="https://wa.me/5519999999999" target="_blank" onclick="closeMenu()">Contato</a>
             <a href="javascript:void(0)" onclick="openModal(); closeMenu()">Reservar Mesa</a>
         </div>
     </nav>
@@ -168,7 +140,7 @@
             <div class="card-img-box"><img src="FOTO_4.jpg"></div>
             <div class="card-content">
                 <h3>Petit Gâteau</h3>
-                <p>O encerramento perfeito para o seu banquete. Nosso Petit Gâteau é um vulcão de chocolate belga, com a calda quente derretendo ao primeiro toque. Servido com sorvete de baunilha artesanal e um fio de caramelo salgado.</p>
+                <p>O encerramento perfeito para o seu banquete. Nosso Petit Gâteau é um vulcão de chocolate belga, com a calda quente derretendo ao primeiro toque.</p>
             </div>
         </div>
     </section>
@@ -177,7 +149,7 @@
         <div class="divisor-linha"></div>
         <div class="divisor-icone">▼</div>
         <div class="divisor-linha"></div>
-    </div>
+    </div >
 
     <section class="reveal" style="text-align: center; padding: 0 0 100px 0;">
         <button class="btn-header" style="color: var(--dark); border-color: var(--gold);" onclick="openModal()">Reservar uma Mesa</button>
@@ -264,7 +236,6 @@
             closeModal();
         }
 
-        // Função de revelação simplificada, já que a linha agora está nos cards
         function reveal() {
             var reveals = document.querySelectorAll(".reveal, .card-wrapper, .divisor-container");
             for (var i = 0; i < reveals.length; i++) {
