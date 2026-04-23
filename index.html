@@ -24,12 +24,12 @@
         .menu-btn:checked ~ .menu-icon span:nth-child(2) { opacity: 0; }
         .menu-btn:checked ~ .menu-icon span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* --- HEADER --- */
+        /* --- HEADER (Texto e Botão Ajustados para Branco/Dourado Sólido) --- */
         header { height: 100vh; background: url('FOTO_CAPA.jpg') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 90px; color: var(--gold); letter-spacing: 15px; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .subtitle { font-size: 16px; text-transform: uppercase; letter-spacing: 6px; margin-top: 10px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
-        .btn-header { margin-top: 40px; padding: 18px 45px; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; font-weight: bold; background: rgba(0,0,0,0.5); cursor: pointer; transition: 0.4s; }
-        .btn-header:hover { background: var(--gold); color: white; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 90px; color: var(--white); letter-spacing: 15px; margin: 0; text-shadow: 2px 2px 8px rgba(0,0,0,0.6); }
+        .subtitle { font-size: 16px; text-transform: uppercase; letter-spacing: 6px; margin-top: 10px; color: var(--white); text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
+        .btn-header { margin-top: 40px; padding: 18px 45px; border: 2px solid var(--gold); color: var(--white); text-transform: uppercase; font-weight: bold; background: var(--gold); cursor: pointer; transition: 0.4s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-header:hover { background: var(--white); color: var(--gold); border-color: var(--white); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
 
         /* --- ANIMAÇÕES --- */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.17, 0.55, 0.55, 1); }
@@ -232,4 +232,22 @@
             const pessoas = document.getElementById("pessoas").value;
             if(!nome || !selectedDate || !selectedTimeValue) { alert("Selecione data, hora e digite seu nome."); return; }
             const msg = `Reserva Deck:%0ANome: ${nome}%0AData: ${selectedDate}%0AHora: ${selectedTimeValue}%0APessoas: ${pessoas}`;
-            window.open(`https
+            window.open(`https://wa.me/5519993405480?text=${msg}`);
+            closeModal();
+        }
+
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal, .card-wrapper, .divisor-container");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 120) { 
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
+    </script>
+</body>
+</html>
